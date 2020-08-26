@@ -2,15 +2,17 @@ from kivy.lang import Builder
 from kivy.properties import StringProperty
 from kivy.uix.screenmanager import Screen
 from screenhelper import *
-
+from kivy.uix.boxlayout import BoxLayout
 from kivymd.app import MDApp
 from kivymd.uix.list import OneLineIconListItem
 
 
 Builder.load_string(
-    screen_search
+    s
 )
 
+class ContentNavigationDrawer(BoxLayout):
+    pass
 
 class CustomOneLineIconListItem(OneLineIconListItem):
     icon = StringProperty()
