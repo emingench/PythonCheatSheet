@@ -48,10 +48,11 @@ s = '''
 
     BoxLayout:
         orientation: 'vertical'
-        spacing: dp(10)
-        padding: dp(50)
+        
         height: self.minimum_height
         BoxLayout:
+            spacing: dp(10)
+            padding: dp(40)
             size_hint_y: None
             height: self.minimum_height   
 
@@ -67,6 +68,11 @@ s = '''
                 size_hint_y: None
                 height: self.minimum_height
                 orientation: 'vertical'
+        BoxLayout:
+            spacing: dp(10)
+            padding: dp(25)
+            size_hint_y: None
+            height: self.minimum_height 
         
            
 
@@ -88,6 +94,7 @@ s = '''
                           
                         
                     Widget:
+                      
                     BoxLayout:
                         size_hint_y: None
                         height: self.minimum_height
