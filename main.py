@@ -5,6 +5,7 @@ from screenhelper import *
 from kivy.uix.boxlayout import BoxLayout
 from kivymd.app import MDApp
 from kivymd.uix.list import OneLineIconListItem
+from  database import db
 
 
 Builder.load_string(
@@ -26,14 +27,14 @@ class PreviousMDItems(Screen):
             self.ids.rv.data.append(
                 {
                     "viewclass": "CustomOneLineIconListItem",
-                    "icon": 'language-python',
+                    "icon": db[text][0],
                     "text": text,
                     "callback": lambda x: x,
                 }
             )
 
         self.ids.rv.data = []
-        for i in ['a','b','c']:
+        for i in db.keys():
             if search:
                 if text in i:
                     add_item(i)
@@ -47,6 +48,8 @@ class MainApp(MDApp):
         self.screen = PreviousMDItems()
 
     def build(self):
+        self.theme_cls.primary_palette = "Blue"
+        self.theme_cls.primary_hue = "900"
         return self.screen
 
     def on_start(self):
