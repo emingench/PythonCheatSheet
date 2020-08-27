@@ -7,8 +7,8 @@ dbbasics=["alpha-b-circle-outline",
           ]
 dbstrings=['alphabetical',
 ['''
-        a = "Emin"
-        a.index("i")
+a = "Emin"
+a.index("i")
            ''','#Strings - indexing'],
 ['''
 a = "Emin"

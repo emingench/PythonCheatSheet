@@ -4,7 +4,7 @@ from kivy.uix.screenmanager import Screen
 from screenhelper import *
 from kivy.uix.boxlayout import BoxLayout
 from kivymd.app import MDApp
-from kivymd.uix.list import OneLineIconListItem
+from kivymd.uix.list import OneLineIconListItem,TwoLineListItem
 from  database import db
 
 
@@ -15,8 +15,8 @@ Builder.load_string(
 class ContentNavigationDrawer(BoxLayout):
     pass
 
-class CustomOneLineIconListItem(OneLineIconListItem):
-    icon = StringProperty()
+class CustomOneLineIconListItem(TwoLineListItem):
+    pass
 
 
 class PreviousMDItems(Screen):
@@ -27,19 +27,21 @@ class PreviousMDItems(Screen):
             self.ids.rv.data.append(
                 {
                     "viewclass": "CustomOneLineIconListItem",
-                    "icon": db[text][0],
-                    "text": text,
+                    "text": text[0],
+                    "secondary_text": text[1],
                     "callback": lambda x: x,
                 }
             )
 
         self.ids.rv.data = []
-        for i in db.keys():
+        for i in range(1, len(db["Strings"])):
+            print(db["Strings"][i][0])
             if search:
-                if text in i:
-                    add_item(i)
+                if text in db["Strings"][i][0]:
+                    add_item(db["Strings"][i])
             else:
-                add_item(i)
+                add_item(db["Strings"][i])
+
 
 
 class MainApp(MDApp):

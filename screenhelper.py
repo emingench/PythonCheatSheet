@@ -43,26 +43,15 @@ screen_search = '''
 s = '''
 <CustomOneLineIconListItem>:
 
-    IconLeftWidget:
-        icon: root.icon
+
 <PreviousMDItems>:
 
     BoxLayout:
         orientation: 'vertical'
         spacing: dp(10)
-        padding: dp(20)
+        padding: dp(50)
 
-        BoxLayout:
-            size_hint_y: None
-            height: self.minimum_height
-
-            MDIconButton:
-                icon: 'magnify'
-
-            MDTextField:
-                id: search_field
-                hint_text: 'Search'
-                on_text: root.set_list_md_items(self.text, True)
+        
 
         RecycleView:
             id: rv
@@ -76,8 +65,8 @@ s = '''
                 size_hint_y: None
                 height: self.minimum_height
                 orientation: 'vertical'
-
-
+        
+           
 
     NavigationLayout:
 
@@ -87,12 +76,28 @@ s = '''
 
                 BoxLayout:
                     orientation: 'vertical'
+                    canvas:
+                        Color:
+                            rgba: .2,.2,.2,1
 
                     MDToolbar:
                         title: "Navigation Drawer"
                         elevation: 10
                         left_action_items: [['menu', lambda x: nav_drawer.toggle_nav_drawer()]]
-
+                          
+                        
+                    Widget:
+                    BoxLayout:
+                        size_hint_y: None
+                        height: self.minimum_height
+            
+                        MDIconButton:
+                            icon: 'magnify'
+            
+                        MDTextField:
+                            id: search_field
+                            hint_text: 'Search'
+                            on_text: root.set_list_md_items(self.text, True)  
                     
 
 
