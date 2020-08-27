@@ -50,8 +50,10 @@ s = '''
         orientation: 'vertical'
         spacing: dp(10)
         padding: dp(50)
-
-        
+        height: self.minimum_height
+        BoxLayout:
+            size_hint_y: None
+            height: self.minimum_height   
 
         RecycleView:
             id: rv
@@ -76,13 +78,12 @@ s = '''
 
                 BoxLayout:
                     orientation: 'vertical'
-                    canvas:
-                        Color:
-                            rgba: .2,.2,.2,1
+                    
+                     
 
                     MDToolbar:
                         title: "Python Cheat Sheet"
-                        elevation: 10
+                        elevation: 11
                         left_action_items: [['menu', lambda x: nav_drawer.toggle_nav_drawer()]]
                           
                         
