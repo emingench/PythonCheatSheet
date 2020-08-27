@@ -81,7 +81,7 @@ s = '''
                             rgba: .2,.2,.2,1
 
                     MDToolbar:
-                        title: "Navigation Drawer"
+                        title: "Python Cheat Sheet"
                         elevation: 10
                         left_action_items: [['menu', lambda x: nav_drawer.toggle_nav_drawer()]]
                           
