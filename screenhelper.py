@@ -93,7 +93,7 @@ s = '''
                         elevation: 10
                         left_action_items: [['menu', lambda x: nav_drawer.toggle_nav_drawer()]]
 
-                    Widget:
+                    
 
 
         MDNavigationDrawer:
