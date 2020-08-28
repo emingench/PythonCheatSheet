@@ -1,11 +1,10 @@
 from kivy.lang import Builder
-from kivy.properties import StringProperty
 from kivy.uix.screenmanager import Screen
 from screenhelper import *
 from kivy.uix.boxlayout import BoxLayout
 from kivymd.app import MDApp
 from kivymd.uix.button import MDRectangleFlatIconButton
-from kivymd.uix.list import OneLineIconListItem, TwoLineListItem
+from kivymd.uix.list import TwoLineListItem
 from database import db
 
 Builder.load_string(
@@ -62,7 +61,7 @@ class PreviousMDItems(Screen):
         self.ids.rv2.data = []
         for category in db.keys():
             if search2:
-                print(text+"1")
+                print(text + "1")
                 if text in category:
                     add_item(category)
             else:
