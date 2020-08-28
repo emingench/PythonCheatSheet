@@ -61,7 +61,6 @@ class PreviousMDItems(Screen):
         self.ids.rv2.data = []
         for category in db.keys():
             if search2:
-                print(text + "1")
                 if text.lower() in category.lower():
                     add_item(category)
             else:
