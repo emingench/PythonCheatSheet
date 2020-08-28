@@ -252,15 +252,160 @@ dbbreak = ['stop-circle-outline',
            ["for i in range(10):\n    pass",
             '#pass is the equivalent of "do nothing"; it is actually a placeholder for when you just want to write a piece of code that you will treat later']
            ]
-dbtry = ['play']
-dbfunctions = ['function']
-dbmodules = ['view-module']
-dbfileoperations = ['file']
-dbregex = ['regex']
-dbOOP = ['view-day']
-dblistcomp = ['format-list-bulleted']
-dblambda = ['lambda']
-dbmap = ['select-all']
+dbtry = ['play',
+         [
+             '''#Try / Except / Else / Finally - handling an exception when it occurs and telling Python to keep executing the rest of the lines of code in the program''',
+             'try:\n     print(4/0)'],
+         ['except ZeroDivisionError:\n    print("Division Error!")',
+          '#specifying what exception types Python should expect as a consequence of running the code inside the "try" block and how to handle them'],
+         ['else:\n    print("No exceptions raised by the try block!")',
+          '#executed if the code inside the "try" block raises NO exceptions'],
+         ['finally:\n    print("I don\'t care if an exception was raised or not!")',
+          '#executed whether the code inside the "try" block raises an exception or not']
+
+         ]
+dbfunctions = ['function',
+               [
+                   'def my_first_function(x, y):\n    sum = x + y\n    return sum :#this statement is used to exit a function and return something when the function is called',
+                   '#defining a function that takes two parameters'],
+               ['my_first_function(1, 2)',
+                '#calling a function and passing two POSITIONAL arguments, the values of 1 and 2; result is 3'],
+               ['#calling a function and passing two POSITIONAL arguments, the values of 1 and 2; result is 3',
+                '#calling a function and passing two KEYWORD arguments, the values of 1 and 2; result is 3'],
+               ['my_first_function(1, y = 2)',
+                '#calling a function and passing mixed types of arguments, the values of 1 and 2; result is 3; rule: positional arguments always before keyword arguments!'],
+               ['def my_first_function(x, y, z = 3):',
+                '#specifying a default parameter value in a function definition'],
+               ['def my_first_function(x, *args)',
+                '#specifying a variable number of positional parameters in a function definition; args is a tuple'],
+               ['def my_first_function(x,**kwargs)',
+                '#specifying a variable number of keyword parameters in a function definition; args is a tuple'],
+               ['global my_var', '#"importing" a variable in the global namespace to the local namespace of a function']
+               ]
+dbmodules = ['view-module',
+             ['import sys',
+              '#importing the sys module; the import statements should be placed before any other code in your application'],
+             ['from math import pi', '#importing only a variable (pi) from the math module'],
+             ['from math import sin',
+              '''#importing only a function (sin()) from the math module; there's no need to add the parantheses of the function when importing it'''],
+             ['from math import *', '#importing all the names (variables and functions) from the math module'],
+             ['C:\WINDOWS\system32> pip install openpyx ',
+              '#Installing a non-default Python 3 module in Windows is done from the command line (e.g. the openpyxl module)', ],
+             ['mihais-MacBook-Pro:~ mihai$ pip3 install openpyx',
+              '#Installing a non-default Python 3 module in macOS is done from the terminal (e.g. the openpyxl module)']
+             ]
+dbfileoperations = ['file',
+                    ['myfile = open("routers.txt", "r")',
+                     '#"r" is the file access mode for reading and it is the default mode when opening a file'],
+                    ['myfile.mode', '#checking the mode in which a file has been opened'],
+                    ['myfile.read()', '#method that returns the entire content of a file in the form of a string'],
+                    ['myfile.read(5)', '#returning only the first 5 characters (bytes) in the file'],
+                    ['myfile.seek(0)', '#moving the cursor at the beginning of the file'],
+                    ['myfile.tell()', '#checking the current position of the cursor inside the file'],
+                    ['myfile.readline()', '#returns the file content one line a ta time, each time you use the method'],
+                    ['myfile.readlines()', '#returns a list where each element is a line in the file'],
+                    ['newfile = open("newfile.txt", "w")',
+                     '#opens/creates a new file for writing; the "w" method also creates the file for writing if the file doesn’t exist and overrides the file if the file already exists; remember to close the file after writing to it to save the changes!'],
+                    ['newfile.writelines(["bob", "mars", "HP", "\\n"])',
+                     '#this method takes a sequence of strings as an argument and writes those strings to the file'],
+                    ['newfile = open("newfile.txt", "a")', '#opening a file for appending'],
+                    ['newfile = open("newfile.txt", "w+")',
+                     '#opens a file for both writing and reading at the same time'],
+                    ['newfile = open("newfile.txt", "x")',
+                     '#opens for exclusive creation, failing if the file already exists'],
+                    ['newfile.closed', '#checking if a file is closed'],
+                    ['newfile.close()', '#closing a file'],
+                    ['with open("python.txt", "w") as f:\n        f.write("Hello Python!\\n")',
+                     '#using the with-as solution, the files gets closed automatically, without needing the close() method'],
+                    ['f = open("D:\\\\test.txt", "r+")\nf.truncate()', '#this deletes all the content inside the file'],
+                    ['f = open("D:\\test.txt", "r+")\nf.truncate(10)',
+                     '#this will keep the first 10 characters in the file and delete the rest']
+                    ]
+dbregex = ['regex',
+           ['a = re.match(pattern, string, optional flags)',
+            '#general match syntax; "a" is called a match object if the pattern is found in the string, otherwise "a" will be None'],
+           [
+               'mystr ="You can learn any programming language, whether it is Python2,Python3, Perl, Java, javascript or PHP.\nimport re #importing the regular expressions module\na = re.match("You", mystr)"',
+               '#checking if the characters "You" are indeed at the beginning of the string'],
+           ['a.group()',
+            '''#result is 'You'; Python returns the match it found in the string according to the pattern we provided'''],
+           ['a = re.match("you", mystr, re.I)', '#re.I is a flag that ignores the case of the matched characters'],
+           ['a = re.search(pattern, string, optional flags)',
+            '''#general search syntax; searching for a pattern throughout the entire string; will return a match object if the pattern is found and None if it's not found'''],
+           ['arp = "22.22.22.1 0 b4:a9:5a:ff:c8:45 VLAN#222 L"\na = re.search(r"(.+?) +(\d) +(.+?)\s{2,}(\w)*", arp)',
+            '''#result is '22.22.22.1'; 'r' means the pattern should be treated like a raw string; any pair of parentheses indicates the start and the end of a group; if a match is found for the pattern inside the parentheses, then the contents of that group can be extracted with the group() method applied to the match object; in regex syntax, a dot represents any character, except a new line character; the plus sign means that the previous expression, which in our case is just a dot,may repeat one or more times; the question mark matching as few characters as possible'''],
+           ['a.groups()', '''#returns all matches found in a given string, in the form of a tuple, where each match is an element of that tuple
+('22.22.22.1', '0', 'b4:a9:5a:ff:c8:45 VLAN#222', 'L')'''],
+           ['a = re.findall(r"\d\d\.\d{2}\.[0-9][0-9]\.[0-9]{1,3}", arp)',
+            '#returns a list where each element is a pattern that was matched inside the target string \n [\'22.22.22.1\'] #result of the above operation - a list with only one element, the IP address matched by the regex'],
+           ['b = re.sub(r"\d", "7", arp)',
+            '''#replaces all occurrences of the specified pattern in the target string with a string you enter as an argument \n '77.77.77.7 7 b7:a7:7a:ff:c7:77 VLAN#777 L 77.77.77.77' #result of the above operation''']
+           ]
+dbOOP = ['view-day',
+         [
+             'class MyRouter(object):#creating a class which inherts from the default "object" class\n         def __init__(self, routername, model, serialno, ios):#class constructor; initializing some variables and the method is called whenever you create a new instance of the class\n                  self.routername = routername #"self" is a reference to the current instance of the class \n                  self.model = model\n                  self.serialno = serialno\n                  self.ios = ios',
+             ''],
+         ['''    def print_router(self, manuf_date):
+        print("The router name is: ", self.routername)
+        print("The router model is: ", self.model)
+        print("The serial number of: ", self.serialno)
+        print("The IOS version is: ", self.ios)
+        print("The model and date combined: ", self.model + manuf_date)
+         ''',
+          '''router1 = MyRouter('R1', '2600', '123456', '12.4') #creating an object by simply calling the class name and entering the arguments required by the __init__ method in between parentheses'''],
+         ['router1.model', "#accessing the object's attributes; result is '2600'"],
+         ['router1.print_router("20150101")', '''#accessing a function (actually called method) from within the class
+The router name is: R1
+The router model is: 2600
+The serial number of: 123456
+The IOS version is: 12.4
+The model and date combined: 260020150101'''],
+         ['''getattr(router1, "ios") #getting the value of an attribute
+setattr(router1, "ios", "12.1") #setting the value of an attribute
+hasattr(router1, "ios") #checking if an object attribute exists
+delattr(router1, "ios") #deleting an attribute''',
+          'isinstance(router1, MyRouter) #verifying if an object is an instance of a particular class'],
+         ['class MyNewRouter(MyRouter): #creating a new class (child) inheriting from the MyRouter parent class',
+          'issubclass(MyNewRouter, MyRouter) #returns True or False; checking if a class is the child of another class']
+         ]
+dblistcomp = ['format-list-bulleted',
+              ['''#Instead of...
+list1 = []
+for i in range(10):
+j = i ** 2
+list1.append(j)''', '''#...we can use a list comprehension
+list2 = [x ** 2 for x in range(10)]
+list3 = [x ** 2 for x in range(10) if x > 5] #with a conditional statament
+set1 = {x ** 2 for x in range(10)} #set comprehension
+dict1 = {x: x * 2 for x in range(10)} #dictionary comprehension''']
+              ]
+dblambda = ['lambda',
+            ['a = lambda x, y: x * y\na(20, 10)\n#result is 200; calling the lambda function',
+             '#defining a lambda function'],
+            ['''#Instead of...
+def myfunc(list):
+    prod_list = []
+    for x in range(10):
+        for y in range(5):
+            product = x * y
+            prod_list.append(product)
+    return prod_list + list''', '''#...we can use a lambda function, a list comprehension and concatenation on a single line of code
+b = lambda list: [x * y for x in range(10) for y in range(5)] + list''']]
+dbmap = ['select-all',
+         [
+             '#map() - takes a function and a sequence as arguments and applies the function to all the elements of the sequence, returning a list as the result',
+             ''],
+         ['''def product10(a):
+    return a * 10
+
+list1 = range(10)
+map(product10, list1)''', '''#result is [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]; applying the product10() function to each element of list1
+#or...
+map((lambda a: a * 10), list1) #result is [0, 10, 20, 30, 40, 50, 60, 70, 80, 90] as well'''],
+         [
+             '#filter() - takes a function and a sequence as arguments and extracts all the elements in the list for which the function returns True',
+             'filter(lambda a: a > 5, list1) #result is [6, 7, 8, 9]']
+         ]
 dbiter = ['card-plus-outline']
 dbitertools = ['tools']
 dbdecor = ['attachment']
