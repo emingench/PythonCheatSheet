@@ -41,7 +41,7 @@ class PreviousMDItems(Screen):
         self.ids.rv.data = []
         for i in range(1, len(db["Strings"])):
             if search:
-                if text.lower() in db["Strings"][i][0].lower():
+                if text.lower() in (db["Strings"][i][0].lower()) or text.lower() in (db["Strings"][i][1].lower()) :
                     add_item(db["Strings"][i])
             else:
                 add_item(db["Strings"][i])
