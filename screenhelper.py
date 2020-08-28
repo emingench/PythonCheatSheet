@@ -42,6 +42,7 @@ screen_search = '''
 '''
 s = '''
 <CustomOneLineIconListItem>:
+<CustomIconButtonItem>:
 
 
 <PreviousMDItems>:
@@ -85,28 +86,23 @@ s = '''
                 BoxLayout:
                     orientation: 'vertical'
                     
-                     
 
                     MDToolbar:
-                        title: "Python Cheat Sheet"
                         elevation: 11
                         left_action_items: [['menu', lambda x: nav_drawer.toggle_nav_drawer()]]
-                        BoxLayout:
-                            size_hint_y: None
-                            height: self.minimum_height
+                                      
                 
-                
-                            MDTextField:
-                                id: search_field2
-                                hint_text: 'Search'
-                                color_mode: 'custom'
-                                on_text: root.set_list_md_items(self.text, True)
-                                line_color_focus: 1, 1, 1, 1
-                            
-                            MDIconButton:
-                                icon: 'magnify'
-                                theme_text_color: "Custom"
-                                text_color: 1,1,1,1
+                        MDTextField:
+                            id: search_field2
+                            hint_text: 'Search'
+                            color_mode: 'custom'
+                            on_text: root.set_list_md_items(self.text, True)
+                            line_color_focus: 1, 1, 1, 1
+                        
+                        MDIconButton:
+                            icon: 'magnify'
+                            theme_text_color: "Custom"
+                            text_color: 1,1,1,1
                           
                         
                     Widget:
@@ -117,5 +113,40 @@ s = '''
             id: nav_drawer
 
             ContentNavigationDrawer:
-                Screen:
+                
+                orientation: 'vertical'
+              
+                BoxLayout:
+                    spacing: dp(10)
+                    padding: dp(25)
+                    height: self.minimum_height 
+                    
+                    MDTextField:
+                        id: search_field2
+                        hint_text: 'Search'
+                        color_mode: 'custom'
+                        on_text: root.set_list_md_items(self.text, True)
+                        line_color_focus: 0, 0, 0, 1
+                        
+                        
+                            
+                    MDIconButton:
+                        icon: 'magnify'
+                
+                RecycleView:
+                    id: rv2
+                    key_viewclass: 'viewclass'
+                    key_size: 'height'
+        
+                    RecycleBoxLayout:
+                        padding: dp(10)
+                        default_size: None, dp(48)
+                        default_size_hint: 1, None
+                        size_hint_y: None
+                        height: self.minimum_height
+                        orientation: 'vertical'
+                          
+                
+
+                            
             '''

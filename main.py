@@ -4,6 +4,7 @@ from kivy.uix.screenmanager import Screen
 from screenhelper import *
 from kivy.uix.boxlayout import BoxLayout
 from kivymd.app import MDApp
+from kivymd.uix.button import MDRectangleFlatIconButton
 from kivymd.uix.list import OneLineIconListItem,TwoLineListItem
 from  database import db
 
@@ -18,6 +19,8 @@ class ContentNavigationDrawer(BoxLayout):
 class CustomOneLineIconListItem(TwoLineListItem):
     pass
 
+class CustomIconButtonItem(MDRectangleFlatIconButton):
+    pass
 
 class PreviousMDItems(Screen):
 
@@ -41,6 +44,26 @@ class PreviousMDItems(Screen):
                     add_item(db["Strings"][i])
             else:
                 add_item(db["Strings"][i])
+    def set_list_button_items(self, text="", search=False):
+
+        def add_item(text):
+            self.ids.rv2.data.append(
+                {
+                    "viewclass": "CustomIconButtonItem",
+                    "icon": text[0],
+                    "text": text,
+                    "callback": lambda x: x,
+                }
+            )
+
+        self.ids.rv.data = []
+        for text in db.keys():
+            print(db.keys())
+            if search:
+                if text in db.keys():
+                    add_item(text)
+            else:
+                add_item(text)
 
 
 
@@ -56,6 +79,7 @@ class MainApp(MDApp):
 
     def on_start(self):
         self.screen.set_list_md_items()
+        self.screen.set_list_button_items()
 
 
 MainApp().run()
