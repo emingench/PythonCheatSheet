@@ -44,6 +44,7 @@ s = '''
                     
 
                     MDToolbar:
+                        id:toolbar
                         elevation: 11
                         left_action_items: [['menu', lambda x: nav_drawer.set_state()]]
                                       
