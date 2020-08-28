@@ -148,8 +148,7 @@ dbsets = ['set-none',
           ['list1 = [11, 12, 13, 14, 15, 15, 15, 11] -> set1 = set(list1)',
            '#creating a set from a list; removing duplicate elements; returns {11, 12, 13, 14, 15}'],
           ['string1 = "aaabcdeeefgg" set2 = set(string1)',
-           '#creating a set from a string; removing duplicate characters; returns {'b', 'a', 'g', 'f', 'c', 'd', 'e
-           '}; remember that sets are UNORDERED collections of elements'],
+           "#creating a set from a string; removing duplicate characters; returns {'b', 'a', 'g', 'f', 'c', 'd', 'e '}; remember that sets are UNORDERED collections of elements"],
           ['len(set1)', '#returns the number of elements in the set'],
           ['11 in set1', '#returns True; checking if a value is an element of a set'],
           ['10 not in set 1 ', '#returns True; checking if a value is an element of a set'],
@@ -173,8 +172,27 @@ dbsets = ['set-none',
 
           ]
 
-dbtuples = ['format-list-text']
-dbranges = ['diameter']
+dbtuples = ['format-list-text',
+            ["my_tuple = ()",
+             "#creating an empty tuple #Tuples - immutable lists (their contents cannot be changed by adding, removing or replacing elements)"],
+            ["my_tuple = (9,) ", " #creating a tuple with a single element; DO NOT forget the comma"],
+            ["my_tuple = (1, 2, 3, 4) len(my_tuple):4 ",
+             "#Tuples - the same indexing & slicing rules apply as for lists"],
+            ['tuple1 = ("Bob", "Marley", "27") \n (name, surname, age) = tuple1 ',
+             "#Tuples - tuple assignment / packing and unpacki"],
+            ["(a, b, c) = (1, 2, 3)", " #assigning values in a tuple to variables in another tuple"],
+            ["min(tuple1)", "#returns min"],
+            ["max(tuple1)", "#returns max"]
+            ]
+
+dbranges = ['diameter',
+            ["r = range(10)",
+             "#defining a range #Ranges - unlike in Python 2, where the range() function returned a list, in Python 3 it returns an iterator; cannot be sliced"],
+            ["type(r)", "<class 'range'> #the result"],
+            ["list(r) ", "#converting a range to a list : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] #the result"],
+            ["list(r)[2:5]", "#slicing a range by using the list() function first:  [2, 3, 4] #the result"]
+
+            ]
 dbdictionaries = ['notebook']
 dbconditionals = ['arrow-all']
 dbfor = ['arrow-decision']
