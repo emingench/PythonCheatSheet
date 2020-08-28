@@ -218,7 +218,16 @@ dbdictionaries = ['notebook',
                   ["int(variable, 2)", "#converting from binary back to decimal"],
                   ["int(variable, 16)", "#converting from hexadecimal back to decimal"]
                   ]
-dbconditionals = ['arrow-all']
+dbconditionals = ['arrow-all',
+                  ["",
+                   '#If / Elif / Else conditionals - executing code based on one or more conditions being evaluated as True or False; the "elif" and "else" clauses are optional'],
+                  ['x = 5 \n if x > 5: \n\t print("x is greater than 5")',
+                   '#if the "x > 5" expression is evaluated as True, the code indented under the "if" clause gets executed, otherwise the execution jumps to the "elif" clause...'],
+                  ['elif x == 5: \n\t print("x IS 5")',
+                   '#...if the "x == 5" expression is evaluated as True, the code indented under the "elif" clause gets executed, otherwise the execution jumps to the "else" clause'],
+                  ['else: \n\t print("x is NOT greater than 5" ) ',
+                   '#this covers all situations not covered by the "if" and "elif" clauses; the "else" clause, if present, is always the last clause in the code block']
+                  ]
 dbfor = ['arrow-decision']
 dbif = ['arrow-decision-outline']
 dbbreak = ['stop-circle-outline']
