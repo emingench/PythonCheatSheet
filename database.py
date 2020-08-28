@@ -193,7 +193,31 @@ dbranges = ['diameter',
             ["list(r)[2:5]", "#slicing a range by using the list() function first:  [2, 3, 4] #the result"]
 
             ]
-dbdictionaries = ['notebook']
+dbdictionaries = ['notebook',
+                  ["dict1 = {} ", "#Dictionaries - a dictionary is an unordered set of key-value pairs"],
+                  ['dict1 = {"Name": "Bob", "Surname": "Marley", "Age": "27"}', ' #creating an empty dictionary '],
+                  ['dict1["Age"] ', '#returns "27"; extracting a value for a specified key'],
+                  ['dict1["Age"] = "35" ', "#modifies an existing key-value pair"],
+                  ['dict1["Pet"] = "Dog"', ' #adds a new key-value pair to the dictionary'],
+                  ['del dict1["Age"]', '#deleting a key-value pair from the dictionary'],
+                  ['len(dict1)', '#returns the number of key-value pairs in the dictionary'],
+                  ['"Name" in dict1 ', '#verifies if "Name" is a key in the dictionary'],
+                  ['"Phone" not in dict1', '#verifies if "Phone" is not a key in the dictionary'],
+                  ["dict1.keys()", "#returns a list having the keys in the dictionary as elements"],
+                  ["dict1.values()", "#returns a list having the values in the dictionary as elements"],
+                  ["dict1.items()",
+                   " #returns a list of tuples, each tuple containing the key and value of each dictionary pair"],
+                  ["str() ", "#converting to a string"],
+                  ["int() ", "#converting to a integer"],
+                  ["float() ", "#converting to a float"],
+                  ["list() ", "#converting to a list"],
+                  ["tuple() ", "#converting to a tuple"],
+                  ["set() ", "#converting to a set"],
+                  ["bin() ", "#converting to a binary representation"],
+                  ["hex() ", "#converting to a hexadecimal representation"],
+                  ["int(variable, 2)", "#converting from binary back to decimal"],
+                  ["int(variable, 16)", "#converting from hexadecimal back to decimal"]
+                  ]
 dbconditionals = ['arrow-all']
 dbfor = ['arrow-decision']
 dbif = ['arrow-decision-outline']
