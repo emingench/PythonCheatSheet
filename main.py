@@ -33,7 +33,7 @@ class PreviousMDItems(Screen):
                 {
                     "viewclass": "CustomItem",
                     "halign": "center",
-                    "text": "----"*15+"\n"+text[0] +"\n"*2 + text[1],
+                    "text": "----"*30+"\n"+text[0] +"\n"*2 + text[1],
                     "callback": lambda x: x,
                 }
             )
@@ -54,7 +54,8 @@ class PreviousMDItems(Screen):
                     "viewclass": "CustomIconButtonItem",
                     "icon": db[category][0],
                     "text": category,
-                    "callback": lambda x: x,
+
+
                 }
             )
 
@@ -64,7 +65,6 @@ class PreviousMDItems(Screen):
                 if text.lower() in category.lower():
                     add_item(category)
             else:
-                print(category)
                 add_item(category)
 
 
@@ -75,7 +75,7 @@ class MainApp(MDApp):
 
     def build(self):
         self.theme_cls.primary_palette = "Blue"
-        self.theme_cls.primary_hue = "900"
+        self.theme_cls.primary_hue = "700"
         return self.screen
 
     def on_start(self):

@@ -18,7 +18,7 @@ s = '''
 
             RecycleBoxLayout:
                 padding: dp(10)
-                default_size: None, dp(150)
+                default_size: None, dp(300)
                 default_size_hint: 1, None
                 size_hint_y: None
                 height: self.minimum_height
