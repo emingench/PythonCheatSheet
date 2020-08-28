@@ -1,4 +1,6 @@
 s = '''
+<ContentNavigationDrawer>:
+
 <PreviousMDItems>:
 
     BoxLayout:
@@ -43,7 +45,7 @@ s = '''
 
                     MDToolbar:
                         elevation: 11
-                        left_action_items: [['menu', lambda x: nav_drawer.toggle_nav_drawer()]]
+                        left_action_items: [['menu', lambda x: nav_drawer.set_state()]]
                                       
                 
                         MDTextField:
@@ -88,7 +90,7 @@ s = '''
                     id: rv2
                     key_viewclass: 'viewclass'
                     key_size: 'height'
-        
+                        
                     RecycleBoxLayout:
                         padding: dp(10)
                         default_size: None, dp(48)
@@ -96,6 +98,7 @@ s = '''
                         size_hint_y: None
                         height: self.minimum_height
                         orientation: 'vertical'
+                        
                           
                 
 

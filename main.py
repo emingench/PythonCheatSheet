@@ -26,25 +26,25 @@ class CustomIconButtonItem(MDRectangleFlatIconButton):
 
 class PreviousMDItems(Screen):
 
-    def set_list_md_items(self, text="", search=False):
+    def set_list_md_items(self, text="", search=False, category="Basics"):
 
         def add_item(text):
             self.ids.rv.data.append(
                 {
                     "viewclass": "CustomItem",
                     "halign": "center",
-                    "text": "----"*30+"\n"+text[0] +"\n"*2 + text[1],
+                    "text": "----" * 30 + "\n" + text[0] + "\n" * 2 + text[1],
                     "callback": lambda x: x,
                 }
             )
 
         self.ids.rv.data = []
-        for i in range(1, len(db["Strings"])):
+        for i in range(1, len(db[category])):
             if search:
-                if text.lower() in (db["Strings"][i][0].lower()) or text.lower() in (db["Strings"][i][1].lower()):
-                    add_item(db["Strings"][i])
+                if text.lower() in (db[category][i][0].lower()) or text.lower() in (db[category][i][1].lower()):
+                    add_item(db[category][i])
             else:
-                add_item(db["Strings"][i])
+                add_item(db[category][i])
 
     def set_list_button_items(self, text="", search2=False):
 
@@ -54,7 +54,8 @@ class PreviousMDItems(Screen):
                     "viewclass": "CustomIconButtonItem",
                     "icon": db[category][0],
                     "text": category,
-
+                    "callback": lambda x: x,
+                    "on_press": lambda x=category: self.set_list_md_items("", True, category),
 
                 }
             )
