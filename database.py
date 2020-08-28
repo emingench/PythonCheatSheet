@@ -242,7 +242,10 @@ dbfor = ['arrow-decision',
              'x = 1\nwhile x <= 10:\n    print(x)\n    x += 1\nelse:\n    print("Out of the while loop. x is now greater than 10")',
              '#result of the above "while" block \n 1 2 3 4 5 6 7 8 9 10\nOut of the while loop. x is now greater than 10']
          ]
-dbbreak = ['stop-circle-outline']
+dbbreak = ['stop-circle-outline',
+['list1 = [4, 5, 6]\nlist2 = [10, 20, 30]\nfor i in list1:\n    for j in list2:\n        \n            if j == 20:\n                break\n           print(i * j)\n       print("Outside the nested loop)"\n#result of the above block: 40\nOutside the nested loop\n50\nOutside the nested loop\n60\nOutside the nested loop','''#stops the execution here, ignores the print statement below and completely quits THIS "for" loop; however, it doesn't quit the outer "for" loop, too!'''],
+['list1 = [4, 5, 6]\nlist2 = [10, 20, 30]\nfor i in list1:\n    for j in list2:\n        \n            if j == 20:\n                continue\n           print(i * j)\n       print("Outside the nested loop)"\n#result of the above block: 40\n120\nOutside the nested loop\n50\n150\nOutside the nested loop\n60\n180\nOutside the nested loop','''#stops the execution here, ignores the print statement below and completely quits THIS "for" loop; however, it doesn't quit the outer "for" loop, too!''']
+           ]
 dbtry = ['play']
 dbfunctions = ['function']
 dbmodules = ['view-module']

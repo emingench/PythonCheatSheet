@@ -32,7 +32,7 @@ class PreviousMDItems(Screen):
             self.ids.rv.data.append(
                 {
                     "viewclass": "CustomItem",
-                    "text": "----" * 30 + "\n" + text[0] + "\n" * 2 + text[1],
+                    "text": "----" * 20 + "\n" + text[0] + "\n" * 2 + text[1],
                     "callback": lambda x: x,
                 }
             )
