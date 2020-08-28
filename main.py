@@ -68,7 +68,6 @@ class PreviousMDItems(Screen):
                 add_item(category)
 
 
-
 class MainApp(MDApp):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
