@@ -1,8 +1,4 @@
 s = '''
-<CustomOneLineIconListItem>:
-<CustomIconButtonItem>:
-
-
 <PreviousMDItems>:
 
     BoxLayout:
@@ -81,7 +77,7 @@ s = '''
                 
                 MDTextField:
                     id: search_field2
-                    hint_text: 'Search'
+                    hint_text: 'Search Category'
                     color_mode: 'custom'
                     on_text: root.set_list_button_items(self.text,True)
                     line_color_focus: 0, 0, 0, 1

@@ -4,7 +4,6 @@ from screenhelper import *
 from kivy.uix.boxlayout import BoxLayout
 from kivymd.app import MDApp
 from kivymd.uix.button import MDRectangleFlatIconButton
-from kivymd.uix.list import TwoLineListItem
 from database import db
 from kivymd.uix.label import MDLabel
 
@@ -17,7 +16,7 @@ class ContentNavigationDrawer(BoxLayout):
     pass
 
 
-class CustomOneLineIconListItem(MDLabel):
+class CustomItem(MDLabel):
     pass
 
 
@@ -32,7 +31,7 @@ class PreviousMDItems(Screen):
         def add_item(text):
             self.ids.rv.data.append(
                 {
-                    "viewclass": "CustomOneLineIconListItem",
+                    "viewclass": "CustomItem",
                     "halign": "center",
                     "text": "----"*15+"\n"+text[0] +"\n"*2 + text[1],
                     "callback": lambda x: x,
