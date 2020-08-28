@@ -5,22 +5,25 @@ from screenhelper import *
 from kivy.uix.boxlayout import BoxLayout
 from kivymd.app import MDApp
 from kivymd.uix.button import MDRectangleFlatIconButton
-from kivymd.uix.list import OneLineIconListItem,TwoLineListItem
-from  database import db
-
+from kivymd.uix.list import OneLineIconListItem, TwoLineListItem
+from database import db
 
 Builder.load_string(
     s
 )
 
+
 class ContentNavigationDrawer(BoxLayout):
     pass
+
 
 class CustomOneLineIconListItem(TwoLineListItem):
     pass
 
+
 class CustomIconButtonItem(MDRectangleFlatIconButton):
     pass
+
 
 class PreviousMDItems(Screen):
 
@@ -38,33 +41,33 @@ class PreviousMDItems(Screen):
 
         self.ids.rv.data = []
         for i in range(1, len(db["Strings"])):
-            print(db["Strings"][i][0])
             if search:
                 if text in db["Strings"][i][0]:
                     add_item(db["Strings"][i])
             else:
                 add_item(db["Strings"][i])
-    def set_list_button_items(self, text="", search=False):
 
-        def add_item(text):
+    def set_list_button_items(self, text="", search2=False):
+
+        def add_item(category):
             self.ids.rv2.data.append(
                 {
                     "viewclass": "CustomIconButtonItem",
-                    "icon": text[0],
-                    "text": text,
+                    "icon": db[category][0],
+                    "text": category,
                     "callback": lambda x: x,
                 }
             )
 
-        self.ids.rv.data = []
-        for text in db.keys():
-            print(db.keys())
-            if search:
-                if text in db.keys():
-                    add_item(text)
+        self.ids.rv2.data = []
+        for category in db.keys():
+            if search2:
+                print(text+"1")
+                if text in category:
+                    add_item(category)
             else:
-                add_item(text)
-
+                print(category)
+                add_item(category)
 
 
 class MainApp(MDApp):

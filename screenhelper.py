@@ -93,7 +93,7 @@ s = '''
                                       
                 
                         MDTextField:
-                            id: search_field2
+                            id: search_field
                             hint_text: 'Search'
                             color_mode: 'custom'
                             on_text: root.set_list_md_items(self.text, True)
@@ -116,23 +116,20 @@ s = '''
                 
                 orientation: 'vertical'
               
-                BoxLayout:
-                    spacing: dp(10)
-                    padding: dp(25)
-                    height: self.minimum_height 
-                    
-                    MDTextField:
-                        id: search_field2
-                        hint_text: 'Search'
-                        color_mode: 'custom'
-                        on_text: root.set_list_md_items(self.text, True)
-                        line_color_focus: 0, 0, 0, 1
-                        
-                        
-                            
-                    MDIconButton:
-                        icon: 'magnify'
                 
+                spacing: dp(10)
+                padding: dp(25)
+                height: self.minimum_height 
+                
+                MDTextField:
+                    id: search_field2
+                    hint_text: 'Search'
+                    color_mode: 'custom'
+                    on_text: root.set_list_button_items(self.text,True)
+                    line_color_focus: 0, 0, 0, 1
+                        
+                        
+                                    
                 RecycleView:
                     id: rv2
                     key_viewclass: 'viewclass'
